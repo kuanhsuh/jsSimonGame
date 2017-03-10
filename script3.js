@@ -3,12 +3,13 @@ function playSequence(count) {
 
   function play() {
     console.log(model.currentDisplay[i]);
+    view.showBoardHighlight(model.currentDisplay[i])
     i++;
     if (i < count + 1) {
       setTimeout(play, 1000)
     }
   }
-  play()
+  setTimeout( play, 1000);
 }
 
 var model = {
@@ -45,12 +46,14 @@ var model = {
     if (this.compare(element)) {
       if (this.isLastUserInput()) {
         this.userInput = [];
-        this.count++
+        this.count++;
+        view.updateCount(this.count)
           if (this.isWon()) {
             console.log("WON")
-            this.reset()
+            // this.reset()
           } else {
             this.currentDisplay.push(this.randomSeries[this.count])
+
             playSequence(this.count)
           }
       }
@@ -59,7 +62,7 @@ var model = {
         this.reset()
         console.log("strict mode")
       }
-      console.log('incorrect')
+      view.showError()
       playSequence(this.count)
       this.userInput = [];
     }
@@ -74,3 +77,33 @@ var model = {
     return this.count === this.randomSeries.length
   }
 }
+
+
+var handler = {
+  userMove: function(e){
+    view.showBoardHighlight(e.textContent * 1)
+    model.userMove(e.textContent * 1)
+  }
+
+}
+
+var view = {
+  showBoardHighlight: function(i){
+    $(`#square${i}`).addClass('highlight').delay(500).queue(function(next){
+      $(this).removeClass('highlight')
+      next()
+    })
+  },
+  updateCount: function(i){
+    $("#count").text(i)
+  },
+  showError: function(){
+    $("#count").text("!!!").delay(800).queue(function(next){
+          view.updateCount(model.count)
+          next()
+    })
+  }
+}
+
+//start event handler
+//stict mode

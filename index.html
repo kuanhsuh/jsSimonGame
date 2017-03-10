@@ -21,44 +21,41 @@
           <div class="col-md-12">
             <h1>Simon Game</h1>
 
-        <span class="badge badge-primary">On/OFF</span>
-        <label class="switch">
+            <span class="badge badge-primary">On/OFF</span>
+            <label class="switch">
           <input type="checkbox">
           <div class="slider round"></div>
         </label>
-        <span class="badge badge-danger">Strict</span>
-        <label class="switch">
+            <span class="badge badge-danger">Strict</span>
+            <label class="switch">
           <input type="checkbox">
           <div class="slider round"></div>
         </label>
 
-      </div>
-      
-    </div>
-      <div class="row "><div class="col-md-12 text-center">
-        <button class="btn btn-md btn-outline-success">Start</button>
+          </div>
 
+        </div>
+        <div class="row ">
+          <div class="col-md-12 text-center">
+            <button class="btn btn-md btn-outline-success">Start</button>
+            <span class="badge badge-default">Count
+              <button id="count" class="btn btn-md btn-outline-default">00</button>
+            </span>
+          </div>
       </div></div>
       </div>
       <div class="row">
-        <div id="square1" class="col-md-6 square green">square1</div>
-        <div id="square2" class="col-md-6 square red">square2</div>
+        <div id="square1" onclick="handler.userMove(this)" class="col-md-6 square green">1</div>
+        <div id="square2" onclick="handler.userMove(this)" class="col-md-6 square red">2</div>
       </div>
       <div class="row">
-        <div id="square3" class="col-md-6 square blue ">square3</div>
-        <div id="square4" class="col-md-6 square yellow">square4</div>
+        <div id="square3" onclick="handler.userMove(this)" class="col-md-6 square blue ">3</div>
+        <div id="square4" onclick="handler.userMove(this)" class="col-md-6 square yellow">4</div>
       </div>
     </div>
   </div>
-<!--
-- Title
-- On/Off Switch https://www.w3schools.com/howto/howto_css_switch.asp
-- Start Button
-- IS strict Switch https://www.w3schools.com/howto/howto_css_switch.asp
-- Count Display
-- 4 color circles
--->
-  <script src="script2.js" charset="utf-8"></script>
+
+  <script src="script3.js" charset="utf-8"></script>
 
 </body>
 
