@@ -3,6 +3,9 @@ English: https://www.freecodecamp.com/challenges/build-a-simon-game
 
 中文： https://freecodecamp.cn/challenges/build-a-simon-game
 
+My Codepen: http://codepen.io/dannyhuang/pen/Opmzpy
+
+
 ### Video Walkthrough
 ![](https://github.com/kuanhsuh/jsSimonGame/blob/master/demo.gif)
 
