@@ -4,7 +4,7 @@ English: https://www.freecodecamp.com/challenges/build-a-simon-game
 中文： https://freecodecamp.cn/challenges/build-a-simon-game
 
 ### Video Walkthrough
-
+![](https://github.com/kuanhsuh/jsSimonGame/blob/master/demo.gif)
 
 ### Project Log
 3.9
