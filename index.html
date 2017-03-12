@@ -9,51 +9,60 @@
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="container">
+  <div class="container text-center">
     <div class="card text-center">
       <div class="card-block">
-        <div class="row">
-          <div class="col-md-12">
-            <h1>Simon Game</h1>
-
-            <span class="badge badge-primary">On/OFF</span>
-            <label class="switch">
-          <input type="checkbox">
-          <div class="slider round"></div>
-        </label>
-            <span class="badge badge-danger">Strict</span>
-            <label class="switch">
-          <input type="checkbox">
-          <div class="slider round"></div>
-        </label>
-
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h1>Simon Game</h1>
+              <span class="badge badge-primary">On/OFF</span>
+              <label class="switch">
+                <input id="on" onclick="handler.isOn(this)" type="checkbox">
+                <div class="slider round"></div>
+              </label>
+              <span class="badge badge-danger">Strict</span>
+              <label class="switch">
+                <input id="strict" onclick="handler.isStrict(this)" type="checkbox">
+                <div class="slider round"></div>
+              </label>
+            </div>
           </div>
-
-        </div>
-        <div class="row ">
-          <div class="col-md-12 text-center">
-            <button class="btn btn-md btn-outline-success">Start</button>
-            <span class="badge badge-default">Count
+          <div class="row ">
+            <div class="col-md-12 text-center">
+              <button id="start" onclick="handler.start()" class="btn btn-md btn-outline-default disabled">Start</button>
+              <span class="badge badge-default">Count
               <button id="count" class="btn btn-md btn-outline-default">00</button>
             </span>
+            </div>
           </div>
-      </div></div>
-      </div>
-      <div class="row">
-        <div id="square1" onclick="handler.userMove(this)" class="col-md-6 square green">1</div>
-        <div id="square2" onclick="handler.userMove(this)" class="col-md-6 square red">2</div>
-      </div>
-      <div class="row">
-        <div id="square3" onclick="handler.userMove(this)" class="col-md-6 square blue ">3</div>
-        <div id="square4" onclick="handler.userMove(this)" class="col-md-6 square yellow">4</div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div id="square1" onclick="handler.userMove(this)" class="d-inline-block square green disabled">1</div>
+            <div id="square2" onclick="handler.userMove(this)" class="d-inline-block square red disabled">2</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div id="square3" onclick="handler.userMove(this)" class="d-inline-block square blue disabled">3</div>
+            <div id="square4" onclick="handler.userMove(this)" class="d-inline-block square yellow disabled">4</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  </div>
+
+  <audio data-key="1" src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"></audio>
+  <audio data-key="2" src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"></audio>
+  <audio data-key="3" src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"></audio>
+  <audio data-key="4" src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"></audio>
 
   <script src="script3.js" charset="utf-8"></script>
 

@@ -22,6 +22,9 @@ var model = {
   game: function() {
     if (this.isOn) {
       this.reset()
+    } else {
+      this.count = 0;
+      view.updateCount(this.count)
     }
   },
   reset: function() {
@@ -49,8 +52,8 @@ var model = {
         this.count++;
         view.updateCount(this.count)
           if (this.isWon()) {
-            console.log("WON")
-            // this.reset()
+            alert("Congrats you beat the game")
+            $("#on").prop('checked', false);
           } else {
             this.currentDisplay.push(this.randomSeries[this.count])
 
@@ -76,6 +79,7 @@ var model = {
   isWon: function() {
     return this.count === this.randomSeries.length
   }
+
 }
 
 
@@ -83,8 +87,17 @@ var handler = {
   userMove: function(e){
     view.showBoardHighlight(e.textContent * 1)
     model.userMove(e.textContent * 1)
+  },
+  isStrict: function(e){
+    model.isStrict = $(e).prop('checked') ? true : false;
+  },
+  isOn: function(e){
+    model.game()
+    view.isOn(e);
+  },
+  start: function(){
+    model.reset();
   }
-
 }
 
 var view = {
@@ -93,6 +106,7 @@ var view = {
       $(this).removeClass('highlight')
       next()
     })
+    $(`audio[data-key=${i}]`)[0].play()
   },
   updateCount: function(i){
     $("#count").text(i)
@@ -102,8 +116,18 @@ var view = {
           view.updateCount(model.count)
           next()
     })
+  },
+  isOn: function(e){
+    if($(e).prop('checked')){
+      $('.square').removeClass('disabled')
+      $('#start').removeClass('disabled')
+      $('#start').removeClass('btn-outline-default')
+      $('#start').addClass('btn-outline-success')
+    } else {
+      $('.square').addClass('disabled')
+      $('#start').addClass('disabled')
+      $('#start').removeClass('btn-outline-success')
+      $('#start').addClass('btn-outline-default')
+    }
   }
 }
-
-//start event handler
-//stict mode
